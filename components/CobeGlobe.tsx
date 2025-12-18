@@ -8,7 +8,10 @@ interface CobeGlobeProps {
   className?: string;
 }
 
-export default function CobeGlobe({ size = 500, className = "" }: CobeGlobeProps) {
+export default function CobeGlobe({
+  size = 500,
+  className = "",
+}: CobeGlobeProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -28,20 +31,20 @@ export default function CobeGlobe({ size = 500, className = "" }: CobeGlobeProps
       height: width * 2,
       phi: 0,
       theta: 0.3,
-      dark: 0,                           // Light mode (light base, dark dots)
+      dark: 0, // Light mode (light base, dark dots)
       diffuse: 1.2,
-      mapSamples: 16000,                 // Dotted landmasses
+      mapSamples: 16000, // Dotted landmasses
       mapBrightness: 6,
-      baseColor: [0.9, 0.9, 0.9],        // Light gray base
-      markerColor: [0.02, 0.02, 0.02],   // Very dark markers/landmasses (nearly black)
-      glowColor: [1, 1, 1],              // White glow
+      baseColor: [0.9, 0.9, 0.9], // Light gray base
+      markerColor: [0.02, 0.02, 0.02], // Very dark markers/landmasses (nearly black)
+      glowColor: [1, 1, 1], // White glow
       markers: [
         // Orange County, CA marker
-        { location: [33.7175, -117.8311], size: 0.04 }
+        { location: [33.7175, -117.8311], size: 0.04 },
       ],
       onRender: (state) => {
         state.phi = phi;
-        phi += 0.001;  // Very slow rotation for polish
+        phi += 0.001; // Very slow rotation for polish
       },
     });
 

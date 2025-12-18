@@ -67,7 +67,10 @@ export default function TextReveal({
       {items.map((item, index) => (
         <motion.span
           variants={child}
-          style={{ display: "inline-block", marginRight: type === "word" ? "0.25em" : "0.05em" }}
+          style={{
+            display: "inline-block",
+            marginRight: type === "word" ? "0.25em" : "0.05em",
+          }}
           key={index}
         >
           {item}
@@ -76,4 +79,3 @@ export default function TextReveal({
     </motion.span>
   );
 }
-

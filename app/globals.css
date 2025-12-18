@@ -7,7 +7,8 @@
   --foreground: #000000;
 }
 
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -55,6 +56,35 @@ body::after {
   .btn-outline-dark {
     @apply border-4 border-gray-muted rounded-full px-8 py-2 text-gray-muted text-xl transition-all duration-300 hover:bg-gray-muted hover:text-white;
   }
+
+  /* Semantic Typography System */
+  .type-hero {
+    @apply text-[48px] sm:text-[64px] md:text-[96px] lg:text-[128px] font-extrabold leading-[0.9] tracking-[-0.03em];
+  }
+
+  .type-h1 {
+    @apply text-[36px] sm:text-[48px] md:text-[64px] lg:text-[72px] font-bold leading-[1.05] tracking-[-0.02em];
+  }
+
+  .type-h2 {
+    @apply text-[24px] sm:text-[32px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.01em];
+  }
+
+  .type-body-large {
+    @apply text-[18px] md:text-[24px] leading-relaxed;
+  }
+
+  .type-body {
+    @apply text-[16px] md:text-[18px] leading-relaxed;
+  }
+
+  .type-nav {
+    @apply text-[15px] md:text-[17px] font-medium tracking-[-0.01em];
+  }
+
+  .type-label {
+    @apply text-[12px] md:text-[14px] uppercase tracking-wider font-medium;
+  }
 }
 
 /* Scroll animation utilities */
@@ -63,7 +93,9 @@ body::after {
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
   }
 
   /* Visible state - triggered by JS */
@@ -74,10 +106,18 @@ body::after {
   }
 
   /* Staggered delays for child elements */
-  .stagger-1 { transition-delay: 0.1s; }
-  .stagger-2 { transition-delay: 0.2s; }
-  .stagger-3 { transition-delay: 0.3s; }
-  .stagger-4 { transition-delay: 0.4s; }
+  .stagger-1 {
+    transition-delay: 0.1s;
+  }
+  .stagger-2 {
+    transition-delay: 0.2s;
+  }
+  .stagger-3 {
+    transition-delay: 0.3s;
+  }
+  .stagger-4 {
+    transition-delay: 0.4s;
+  }
 
   /* Hide scrollbar utility */
   .hide-scrollbar::-webkit-scrollbar {

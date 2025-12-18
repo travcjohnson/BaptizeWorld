@@ -29,11 +29,19 @@ const timelineEvents: TimelineEvent[] = [
     title: "California",
     baptisms: [
       { count: "6,201", sub: "ACROSS THE STATE" },
-      { count: "6,015", sub: "AT HUNTINGTON BEACH" }
-    ]
+      { count: "6,015", sub: "AT HUNTINGTON BEACH" },
+    ],
   },
-  { date: "May 2025", title: "California", baptisms: [{ count: "7,752", sub: "AT HB, CA" }] },
-  { date: "June 2025", title: "America", baptisms: [{ count: "27,858", sub: "ACROSS THE NATION" }] },
+  {
+    date: "May 2025",
+    title: "California",
+    baptisms: [{ count: "7,752", sub: "AT HB, CA" }],
+  },
+  {
+    date: "June 2025",
+    title: "America",
+    baptisms: [{ count: "27,858", sub: "ACROSS THE NATION" }],
+  },
 ];
 
 export default function MovementSection() {
@@ -46,13 +54,15 @@ export default function MovementSection() {
   const scaleProgress = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   return (
-    <section ref={containerRef} className="w-full bg-black text-white py-10 md:py-14 overflow-hidden">
+    <section
+      ref={containerRef}
+      className="w-full bg-black text-white py-10 md:py-14 overflow-hidden"
+    >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-
         {/* ========== Header Area ========== */}
         <div className="flex flex-col items-center mb-4 md:mb-6">
           <motion.h2
@@ -74,8 +84,12 @@ export default function MovementSection() {
             <p className="text-[10px] md:text-xs uppercase tracking-widest text-gray-400 mb-2">
               In 24 months we&apos;ve seen
             </p>
-            <p className="text-[18px] md:text-2xl font-bold">1,600+ Churches United</p>
-            <p className="text-[18px] md:text-2xl font-bold">50,790+ Baptisms</p>
+            <p className="text-[18px] md:text-2xl font-bold">
+              1,600+ Churches United
+            </p>
+            <p className="text-[18px] md:text-2xl font-bold">
+              50,790+ Baptisms
+            </p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,24 +120,24 @@ export default function MovementSection() {
             <div className="flex-1 relative" style={{ height: "180px" }}>
               {/* Timeline horizontal line - positioned at vertical center */}
               <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] bg-gray-800"></div>
-              
+
               {/* Animated Progress Line */}
-              <motion.div 
+              <motion.div
                 style={{ scaleX: scaleProgress }}
                 className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] bg-white origin-left z-10"
               />
-                
+
               {/* Arrow at end (animated opacity) */}
-              <motion.div 
+              <motion.div
                 style={{ opacity: scaleProgress }}
-                className="absolute -right-1 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[5px] border-t-transparent border-l-[10px] border-l-white border-b-[5px] border-b-transparent z-10" 
+                className="absolute -right-1 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[5px] border-t-transparent border-l-[10px] border-l-white border-b-[5px] border-b-transparent z-10"
               />
 
               {/* Timeline points - positioned AT the line (ticks extend down) */}
               <div className="absolute left-0 right-0 top-1/2 flex justify-between px-4 z-20">
                 {timelineEvents.map((event, index) => (
-                  <motion.div 
-                    key={index} 
+                  <motion.div
+                    key={index}
                     className="relative"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -136,10 +150,16 @@ export default function MovementSection() {
                       style={{ transform: "rotate(-45deg)" }}
                     >
                       <div className="whitespace-nowrap">
-                        <p className="text-[11px] text-gray-500 leading-tight">{event.date}</p>
-                        <p className="text-base font-bold text-white leading-tight">{event.title}</p>
+                        <p className="text-[11px] text-gray-500 leading-tight">
+                          {event.date}
+                        </p>
+                        <p className="text-base font-bold text-white leading-tight">
+                          {event.title}
+                        </p>
                         {event.sub && (
-                          <p className="text-[9px] text-gray-500 uppercase tracking-wider leading-tight">{event.sub}</p>
+                          <p className="text-[9px] text-gray-500 uppercase tracking-wider leading-tight">
+                            {event.sub}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -151,7 +171,10 @@ export default function MovementSection() {
                     {event.baptisms && (
                       <div className="absolute top-6 left-0 -translate-x-1/4 whitespace-nowrap">
                         {event.baptisms.map((baptism, bIndex) => (
-                          <div key={bIndex} className={bIndex > 0 ? "mt-3" : ""}>
+                          <div
+                            key={bIndex}
+                            className={bIndex > 0 ? "mt-3" : ""}
+                          >
                             <p className="text-[13px] text-gray-300 leading-tight">
                               {baptism.count} Baptisms
                             </p>
@@ -170,17 +193,19 @@ export default function MovementSection() {
             </div>
 
             {/* ===== GLOBE GROUP (text + globe as tightly coupled unit) ===== */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex-shrink-0 flex flex-col items-center" 
+              className="flex-shrink-0 flex flex-col items-center"
               style={{ width: "260px" }}
             >
               {/* Label centered above globe */}
               <div className="text-center mb-2">
-                <p className="text-[11px] text-gray-400 mb-0.5">What&apos;s Next?</p>
+                <p className="text-[11px] text-gray-400 mb-0.5">
+                  What&apos;s Next?
+                </p>
                 <p className="text-2xl font-black uppercase tracking-tight text-white leading-none">
                   BAPTIZE
                 </p>
@@ -200,21 +225,21 @@ export default function MovementSection() {
           <div className="relative w-full max-w-sm">
             {/* Central vertical line */}
             <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gray-800 -translate-x-1/2"></div>
-            
+
             {/* Animated Progress Line Vertical */}
-            <motion.div 
+            <motion.div
               style={{ scaleY: scaleProgress }}
               className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white -translate-x-1/2 origin-top"
             />
-            
+
             {/* Arrow at bottom */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[10px] border-t-white" />
 
             {/* Timeline events */}
             <div className="flex flex-col gap-4 py-4">
               {timelineEvents.map((event, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -223,33 +248,43 @@ export default function MovementSection() {
                 >
                   {/* Left side - Event info */}
                   <div className="flex-1 text-right pr-4">
-                    <p className="text-[10px] text-gray-500 leading-tight">{event.date}</p>
-                    <p className="text-sm font-bold text-white leading-tight">{event.title}</p>
+                    <p className="text-[10px] text-gray-500 leading-tight">
+                      {event.date}
+                    </p>
+                    <p className="text-sm font-bold text-white leading-tight">
+                      {event.title}
+                    </p>
                     {event.sub && (
-                      <p className="text-[8px] text-gray-500 uppercase leading-tight">{event.sub}</p>
+                      <p className="text-[8px] text-gray-500 uppercase leading-tight">
+                        {event.sub}
+                      </p>
                     )}
                   </div>
 
                   {/* Center - Horizontal tick mark */}
-                  <div className="relative flex items-center justify-center pt-1" style={{ width: "20px" }}>
+                  <div
+                    className="relative flex items-center justify-center pt-1"
+                    style={{ width: "20px" }}
+                  >
                     {/* Horizontal tick */}
                     <div className="w-2 h-[1px] bg-gray-500" />
                   </div>
 
                   {/* Right side - Baptism counts */}
                   <div className="flex-1 pl-4">
-                    {event.baptisms && event.baptisms.map((baptism, bIndex) => (
-                      <div key={bIndex} className={bIndex > 0 ? "mt-2" : ""}>
-                        <p className="text-[11px] text-gray-400 leading-tight">
-                          {baptism.count} Baptisms
-                        </p>
-                        {baptism.sub && (
-                          <p className="text-[8px] text-gray-500 uppercase leading-tight">
-                            {baptism.sub}
+                    {event.baptisms &&
+                      event.baptisms.map((baptism, bIndex) => (
+                        <div key={bIndex} className={bIndex > 0 ? "mt-2" : ""}>
+                          <p className="text-[11px] text-gray-400 leading-tight">
+                            {baptism.count} Baptisms
                           </p>
-                        )}
-                      </div>
-                    ))}
+                          {baptism.sub && (
+                            <p className="text-[8px] text-gray-500 uppercase leading-tight">
+                              {baptism.sub}
+                            </p>
+                          )}
+                        </div>
+                      ))}
                   </div>
                 </motion.div>
               ))}
@@ -259,7 +294,9 @@ export default function MovementSection() {
           {/* Globe - Centered below timeline */}
           <div className="flex flex-col items-center mt-8">
             <div className="text-center mb-0">
-              <p className="text-[10px] text-gray-400 mb-0.5">What&apos;s Next?</p>
+              <p className="text-[10px] text-gray-400 mb-0.5">
+                What&apos;s Next?
+              </p>
               <p className="text-lg font-black uppercase text-white leading-none">
                 BAPTIZE ALL NATIONS
               </p>
@@ -267,7 +304,6 @@ export default function MovementSection() {
             <CobeGlobe size={180} />
           </div>
         </div>
-
       </div>
     </section>
   );

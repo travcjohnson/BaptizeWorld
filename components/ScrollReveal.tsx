@@ -8,7 +8,11 @@ interface ScrollRevealProps {
   delay?: number;
 }
 
-export default function ScrollReveal({ children, className = "", delay = 0 }: ScrollRevealProps) {
+export default function ScrollReveal({
+  children,
+  className = "",
+  delay = 0,
+}: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -16,7 +20,9 @@ export default function ScrollReveal({ children, className = "", delay = 0 }: Sc
     if (!element) return;
 
     // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (prefersReducedMotion) {
       element.classList.add("is-visible");
       return;
@@ -37,7 +43,7 @@ export default function ScrollReveal({ children, className = "", delay = 0 }: Sc
       {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
-      }
+      },
     );
 
     observer.observe(element);

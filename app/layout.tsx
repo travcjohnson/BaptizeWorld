@@ -10,7 +10,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "BAPTIZE | Uniting the Church to Baptize All Nations",
-  description: "Join the movement. Over 50,000 baptisms across 1,600+ churches.",
+  description:
+    "Join the movement. Over 50,000 baptisms across 1,600+ churches.",
 };
 
 export default function RootLayout({
