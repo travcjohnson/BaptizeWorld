@@ -40,7 +40,7 @@ export default function MovementSection() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 80%", "end center"],
+    offset: ["start 80%", "center center"],
   });
 
   const scaleProgress = useSpring(scrollYProgress, {
