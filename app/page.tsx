@@ -182,7 +182,7 @@ export default function HomePage() {
         {/* Content overlay */}
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-20">
           <ScrollReveal>
-            <h2 className="text-[100px] md:text-[140px] lg:text-[160px] font-black text-white leading-[0.95] text-center tracking-[-3px]">
+            <h2 className="text-[48px] sm:text-[80px] md:text-[120px] lg:text-[160px] font-black text-white leading-[0.95] text-center tracking-[-1px] md:tracking-[-3px]">
               PENTECOST<br />SUNDAY
             </h2>
           </ScrollReveal>
