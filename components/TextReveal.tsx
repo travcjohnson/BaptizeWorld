@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, Variant } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils"; // Assuming cn is in utils, I might need to create it
 
@@ -30,7 +30,7 @@ export default function TextReveal({
     }),
   };
 
-  const child: Variant = {
+  const child: Variants = {
     visible: {
       opacity: 1,
       y: 0,
