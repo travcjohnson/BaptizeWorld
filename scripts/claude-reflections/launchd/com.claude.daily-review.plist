@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.claude.daily-review</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/travis.johnson/Development/BaptizeAmerica/LocalRepo/BaptizeWorld/scripts/claude-reflections/run-review.sh</string>
+        <string>daily</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>4</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin</string>
+        <!-- ANTHROPIC_API_KEY will be loaded from keychain by wrapper script -->
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/travis.johnson/Development/BaptizeAmerica/LocalRepo/BaptizeWorld/scripts/claude-reflections/logs/daily-stdout.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/travis.johnson/Development/BaptizeAmerica/LocalRepo/BaptizeWorld/scripts/claude-reflections/logs/daily-stderr.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

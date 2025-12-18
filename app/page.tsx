@@ -104,9 +104,10 @@ export default function HomePage() {
       {/* ========== HERO HEADLINE ========== */}
       <section className="bg-white py-16 px-6 lg:px-16">
         <ScrollReveal className="max-w-[1400px] mx-auto">
-          <h1 className="text-[64px] md:text-[90px] lg:text-[116px] font-extrabold leading-[0.9] tracking-[-2px]">
+          <h1 className="text-[42px] sm:text-[56px] md:text-[80px] lg:text-[100px] xl:text-[116px] font-extrabold leading-[0.9] tracking-[-2px]">
             UNITING<br />
-            THE CHURCH TO BAPTIZE ALL NATIONS
+            THE CHURCH TO<br />
+            <span className="sm:whitespace-nowrap">BAPTIZE ALL NATIONS</span>
           </h1>
         </ScrollReveal>
       </section>
@@ -239,6 +240,8 @@ export default function HomePage() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
+                {/* Gradient overlay for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
               {/* Button OUTSIDE the card */}
               <button type="button" className="mt-4 self-start rounded-full px-5 sm:px-6 py-3 sm:py-2.5 text-[13px] sm:text-[14px] font-normal border border-gray-300 text-gray-600 bg-white hover:border-gray-600 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2">
@@ -257,6 +260,8 @@ export default function HomePage() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
+                {/* Gradient overlay for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
               {/* Button OUTSIDE the card */}
               <button type="button" className="mt-4 self-start rounded-full px-5 sm:px-6 py-3 sm:py-2.5 text-[13px] sm:text-[14px] font-normal border border-gray-300 text-gray-600 bg-white hover:border-gray-600 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2">
@@ -275,6 +280,8 @@ export default function HomePage() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
+                {/* Gradient overlay for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
               {/* Button OUTSIDE the card */}
               <button type="button" className="mt-4 self-start rounded-full px-5 sm:px-6 py-3 sm:py-2.5 text-[13px] sm:text-[14px] font-normal border border-gray-300 text-gray-600 bg-white hover:border-gray-600 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2">
