@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import React, { useRef, MouseEvent } from "react";
 
 interface MagneticButtonProps {
@@ -9,7 +9,11 @@ interface MagneticButtonProps {
   strength?: number; // How far it can move. Default 0.5
 }
 
-export default function MagneticButton({ children, className = "", strength = 0.5 }: MagneticButtonProps) {
+export default function MagneticButton({
+  children,
+  className = "",
+  strength = 0.5,
+}: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
@@ -46,4 +50,3 @@ export default function MagneticButton({ children, className = "", strength = 0.
     </motion.div>
   );
 }
-

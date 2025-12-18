@@ -2,7 +2,6 @@
 
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
-import { cn } from "@/lib/utils"; // Assuming cn is in utils, I might need to create it
 
 interface TextRevealProps {
   text: string;
@@ -76,4 +75,3 @@ export default function TextReveal({
     </motion.span>
   );
 }
-

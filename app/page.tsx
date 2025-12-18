@@ -31,10 +31,12 @@ function PlayButton() {
 
 // Reusable button component - tighter padding to match mockup
 function LearnMoreButton({ variant = "light" }: { variant?: "light" | "dark" }) {
-  const baseClasses = "rounded-full px-6 md:px-8 py-1.5 text-[14px] md:text-[16px] font-normal tracking-[-0.3px] transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
-  const variantClasses = variant === "light"
-    ? "border-2 border-white text-white hover:bg-white hover:text-black hover:shadow-lg focus-visible:ring-white focus-visible:ring-offset-black/50"
-    : "border-2 border-gray-muted text-gray-muted hover:bg-gray-muted hover:text-white hover:shadow-md focus-visible:ring-gray-muted";
+  const baseClasses =
+    "rounded-full px-6 md:px-8 py-1.5 text-[14px] md:text-[16px] font-normal tracking-[-0.3px] transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+  const variantClasses =
+    variant === "light"
+      ? "border-2 border-white text-white hover:bg-white hover:text-black hover:shadow-lg focus-visible:ring-white focus-visible:ring-offset-black/50"
+      : "border-2 border-gray-muted text-gray-muted hover:bg-gray-muted hover:text-white hover:shadow-md focus-visible:ring-gray-muted";
 
   return (
     <button type="button" className={`${baseClasses} ${variantClasses}`}>
@@ -65,7 +67,10 @@ export default function HomePage() {
 
   return (
     <SmoothScroll>
-      <main id="main-content" className="min-h-screen bg-white overflow-x-hidden selection:bg-black selection:text-white">
+      <main
+        id="main-content"
+        className="min-h-screen bg-white overflow-x-hidden selection:bg-black selection:text-white"
+      >
         {/* ========== HEADER ========== */}
         <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
           <div className="w-full px-4 md:px-8 lg:px-16 xl:px-24 py-4 md:py-5">
@@ -81,28 +86,46 @@ export default function HomePage() {
             <nav className="hidden md:grid grid-cols-3 items-center">
               {/* Left nav */}
               <div className="flex items-center gap-8 lg:gap-14">
-                <Link href="/get-baptized" className="text-[17px] lg:text-[19px] tracking-[-0.5px] hover:opacity-70 transition-opacity whitespace-nowrap">
+                <Link
+                  href="/get-baptized"
+                  className="text-[17px] lg:text-[19px] tracking-[-0.5px] hover:opacity-70 transition-opacity whitespace-nowrap"
+                >
                   GET BAPTIZED
                 </Link>
-                <Link href="/host" className="text-[17px] lg:text-[19px] tracking-[-0.5px] hover:opacity-70 transition-opacity whitespace-nowrap">
+                <Link
+                  href="/host"
+                  className="text-[17px] lg:text-[19px] tracking-[-0.5px] hover:opacity-70 transition-opacity whitespace-nowrap"
+                >
                   HOST AT YOUR CHURCH
                 </Link>
               </div>
 
               {/* Center logo */}
-              <Link href="/" className="text-[42px] lg:text-[52px] font-black tracking-[-1px] justify-self-center">
+              <Link
+                href="/"
+                className="text-[42px] lg:text-[52px] font-black tracking-[-1px] justify-self-center"
+              >
                 BAPTIZE
               </Link>
 
               {/* Right nav */}
               <div className="flex items-center justify-end gap-10 lg:gap-16">
-                <Link href="/shop" className="text-[17px] lg:text-[19px] tracking-[-0.5px] hover:opacity-70 transition-opacity">
+                <Link
+                  href="/shop"
+                  className="text-[17px] lg:text-[19px] tracking-[-0.5px] hover:opacity-70 transition-opacity"
+                >
                   SHOP
                 </Link>
-                <Link href="/give" className="text-[17px] lg:text-[19px] tracking-[-0.5px] hover:opacity-70 transition-opacity">
+                <Link
+                  href="/give"
+                  className="text-[17px] lg:text-[19px] tracking-[-0.5px] hover:opacity-70 transition-opacity"
+                >
                   GIVE
                 </Link>
-                <Link href="/more" className="text-[17px] lg:text-[19px] tracking-[-0.5px] hover:opacity-70 transition-opacity">
+                <Link
+                  href="/more"
+                  className="text-[17px] lg:text-[19px] tracking-[-0.5px] hover:opacity-70 transition-opacity"
+                >
                   MORE
                 </Link>
               </div>
@@ -180,7 +203,9 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent z-10" />
             <div className="relative z-20 text-center flex flex-col items-center">
               <h2 className="text-[36px] md:text-[56px] lg:text-[61px] font-semibold text-white leading-[1.05] tracking-[-1px] mb-6 md:mb-10 drop-shadow-lg">
-                SIGN UP TO<br />BE BAPTIZED
+                SIGN UP TO
+                <br />
+                BE BAPTIZED
               </h2>
               <LearnMoreButton variant="light" />
             </div>
@@ -211,7 +236,9 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent z-10" />
             <div className="relative z-20 text-center flex flex-col items-center">
               <h2 className="text-[36px] md:text-[56px] lg:text-[61px] font-semibold text-white leading-[1.05] tracking-[-1px] mb-6 md:mb-10 drop-shadow-lg">
-                HOST AT<br />YOUR CHURCH
+                HOST AT
+                <br />
+                YOUR CHURCH
               </h2>
               <LearnMoreButton variant="light" />
             </div>
@@ -244,7 +271,9 @@ export default function HomePage() {
           <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 md:py-20">
             <ScrollReveal>
               <h2 className="text-[42px] sm:text-[80px] md:text-[120px] lg:text-[160px] font-black text-white leading-[0.95] text-center tracking-[-1px] md:tracking-[-3px]">
-                PENTECOST<br />SUNDAY
+                PENTECOST
+                <br />
+                SUNDAY
               </h2>
             </ScrollReveal>
           </div>
@@ -255,8 +284,8 @@ export default function HomePage() {
           <ScrollReveal className="max-w-4xl mx-auto">
             <p className="text-[18px] md:text-[24px] text-black leading-relaxed text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
-              gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+              incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+              Risus commodo viverra maecenas accumsan lacus vel facilisis.
             </p>
           </ScrollReveal>
         </section>
@@ -267,7 +296,8 @@ export default function HomePage() {
           <div className="bg-gray-muted py-8 md:py-10 px-6">
             <ScrollReveal>
               <h2 className="text-[32px] md:text-[64px] lg:text-[72px] font-black text-white leading-[1.1] tracking-[-1px] md:tracking-[-2px] text-center">
-                MAKING DISCIPLES<br />
+                MAKING DISCIPLES
+                <br />
                 OF <em className="font-serif italic font-normal">ALL</em> NATIONS
               </h2>
             </ScrollReveal>
@@ -277,8 +307,8 @@ export default function HomePage() {
           <div className="bg-white py-8 md:py-10 px-6">
             <ScrollReveal className="max-w-4xl mx-auto text-center">
               <blockquote className="text-[18px] md:text-[28px] text-black leading-[1.6] mb-3">
-                &ldquo;Go therefore and make disciples of all the nations, baptizing them
-                in the name of the Father and of the Son and of the Holy Spirit&rdquo;
+                &ldquo;Go therefore and make disciples of all the nations, baptizing them in the
+                name of the Father and of the Son and of the Holy Spirit&rdquo;
               </blockquote>
               <cite className="text-[18px] md:text-[28px] text-black font-normal not-italic">
                 Matthew 28:19
@@ -301,7 +331,6 @@ export default function HomePage() {
 
             {/* Events cards - Horizontal Scroll on Mobile, Grid on Desktop */}
             <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible px-6 md:px-0 pb-6 md:pb-0 snap-x snap-mandatory hide-scrollbar">
-              
               {/* Event Card 1 - Baptize Gala */}
               <div className="flex flex-col min-w-[280px] md:min-w-0 snap-center">
                 {/* Image card */}
@@ -376,30 +405,56 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto">
             {/* Tagline */}
             <p className="text-[15px] md:text-[17px] text-black text-center leading-relaxed mb-8 md:mb-12">
-              Baptize is a movement by Cover the Earth Ministries. Together we&apos;ve seen over 50,000 baptisms across 1,600+ churches.
+              Baptize is a movement by Cover the Earth Ministries. Together we&apos;ve seen over
+              50,000 baptisms across 1,600+ churches.
             </p>
 
             {/* Footer navigation */}
             <div className="border-t border-gray-200 pt-8">
               <div className="flex flex-wrap justify-center items-center gap-x-6 md:gap-x-8 gap-y-4 text-[12px] md:text-[14px] text-gray-600 mb-6">
-                <Link href="/privacy" className="hover:text-black transition-colors">PRIVACY POLICY</Link>
-                <Link href="/terms" className="hover:text-black transition-colors">TERMS OF SERVICE</Link>
-                <Link href="/shipping" className="hover:text-black transition-colors">SHIPPING POLICY</Link>
-                <Link href="/cookie" className="hover:text-black transition-colors">COOKIE POLICY</Link>
-                <Link href="/accessibility" className="hover:text-black transition-colors">ACCESSIBILITY STATEMENT</Link>
+                <Link href="/privacy" className="hover:text-black transition-colors">
+                  PRIVACY POLICY
+                </Link>
+                <Link href="/terms" className="hover:text-black transition-colors">
+                  TERMS OF SERVICE
+                </Link>
+                <Link href="/shipping" className="hover:text-black transition-colors">
+                  SHIPPING POLICY
+                </Link>
+                <Link href="/cookie" className="hover:text-black transition-colors">
+                  COOKIE POLICY
+                </Link>
+                <Link href="/accessibility" className="hover:text-black transition-colors">
+                  ACCESSIBILITY STATEMENT
+                </Link>
               </div>
 
               {/* Copyright and social */}
               <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] md:text-[14px] text-gray-500">
                 <p>© {new Date().getFullYear()} Cover the Earth Ministries. All rights reserved.</p>
                 <div className="flex items-center gap-6">
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-black transition-colors"
+                  >
                     Instagram
                   </a>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-black transition-colors"
+                  >
                     Facebook
                   </a>
-                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">
+                  <a
+                    href="https://youtube.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-black transition-colors"
+                  >
                     YouTube
                   </a>
                 </div>
