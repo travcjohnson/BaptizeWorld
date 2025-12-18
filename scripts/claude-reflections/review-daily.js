@@ -8,7 +8,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const { collectConversations, getYesterdayRange, generateStats } = require('./collector');
+const config = require('./config');
 
 const SCRIPTS_DIR = __dirname;
 const OUTPUTS_DIR = path.join(SCRIPTS_DIR, 'outputs');
@@ -19,6 +21,24 @@ const LOGS_DIR = path.join(SCRIPTS_DIR, 'logs');
 [OUTPUTS_DIR, LOGS_DIR].forEach(dir => {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 });
+
+// Ensure Obsidian directories exist
+Object.values(config.outputs).forEach(dir => {
+  fs.mkdirSync(path.join(dir, 'Daily'), { recursive: true });
+});
+
+/**
+ * Send macOS notification
+ */
+function notify(title, message) {
+  if (config.notifications?.enabled) {
+    try {
+      const sound = config.notifications.sound || 'Glass';
+      const script = `display notification "${message}" with title "${title}" sound name "${sound}"`;
+      execSync(`osascript -e '${script}'`);
+    } catch (e) { /* ignore notification errors */ }
+  }
+}
 
 /**
  * Load prompt template
@@ -154,21 +174,40 @@ function prepareConversationSummary(data) {
 }
 
 /**
- * Save review output
+ * Save review output to both local and Obsidian
  */
 function saveOutput(analysis, date, type = 'daily') {
   const dateStr = date.toISOString().split('T')[0];
-  const filename = `${type}-review-${dateStr}.md`;
-  const filepath = path.join(OUTPUTS_DIR, filename);
+  const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
 
-  const output = `# ${type.charAt(0).toUpperCase() + type.slice(1)} Review: ${dateStr}
-Generated: ${new Date().toISOString()}
+  // Obsidian-friendly filename
+  const obsidianFilename = `${dateStr} ${dayName}.md`;
+  const localFilename = `${type}-review-${dateStr}.md`;
+
+  // Obsidian-formatted output with frontmatter
+  const obsidianOutput = `---
+date: ${dateStr}
+type: daily-review
+generated: ${new Date().toISOString()}
+tags:
+  - claude-reflections
+  - daily
+---
+
+# ${dayName}, ${dateStr}
 
 ${analysis}
 `;
 
-  fs.writeFileSync(filepath, output);
-  return filepath;
+  // Save to local backup
+  const localPath = path.join(OUTPUTS_DIR, localFilename);
+  fs.writeFileSync(localPath, obsidianOutput);
+
+  // Save to Obsidian vault
+  const obsidianPath = path.join(config.outputs.obsidian, 'Daily', obsidianFilename);
+  fs.writeFileSync(obsidianPath, obsidianOutput);
+
+  return { local: localPath, obsidian: obsidianPath };
 }
 
 /**
@@ -218,13 +257,18 @@ async function main() {
     // Save output
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    const outputPath = saveOutput(analysis, yesterday, 'daily');
+    const paths = saveOutput(analysis, yesterday, 'daily');
 
-    log(`Review saved to: ${outputPath}`);
+    log(`Review saved to: ${paths.local}`);
+    log(`Obsidian: ${paths.obsidian}`);
     console.log('\n' + analysis);
+
+    // Send notification
+    notify('Claude Reflection', `Daily review complete - ${stats.totalConversations} conversations analyzed`);
 
   } catch (error) {
     log(`Error: ${error.message}`, 'error');
+    notify('Claude Reflection Error', error.message);
     process.exit(1);
   }
 }
