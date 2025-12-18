@@ -20,15 +20,27 @@ function PlayButton() {
   );
 }
 
-// Reusable button component
+// Reusable button component - tighter padding to match mockup
 function LearnMoreButton({ variant = "light" }: { variant?: "light" | "dark" }) {
-  const baseClasses = "rounded-full px-10 py-3 text-[20px] font-normal tracking-[-0.5px] transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+  const baseClasses = "rounded-full px-7 py-2 text-[17px] font-normal tracking-[-0.3px] transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
   const variantClasses = variant === "light"
-    ? "border-[3px] border-white text-white hover:bg-white hover:text-black hover:shadow-lg focus-visible:ring-white focus-visible:ring-offset-black/50"
-    : "border-[3px] border-gray-muted text-gray-muted hover:bg-gray-muted hover:text-white hover:shadow-md focus-visible:ring-gray-muted";
+    ? "border-2 border-white text-white hover:bg-white hover:text-black hover:shadow-lg focus-visible:ring-white focus-visible:ring-offset-black/50"
+    : "border-2 border-gray-muted text-gray-muted hover:bg-gray-muted hover:text-white hover:shadow-md focus-visible:ring-gray-muted";
 
   return (
     <button type="button" className={`${baseClasses} ${variantClasses}`}>
+      learn more
+    </button>
+  );
+}
+
+// Event card button - smaller variant for cards
+function EventButton() {
+  return (
+    <button
+      type="button"
+      className="mt-4 self-start rounded-full px-5 py-2 text-[13px] font-normal border border-gray-300 text-gray-600 bg-white hover:border-gray-600 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2"
+    >
       learn more
     </button>
   );
@@ -82,7 +94,7 @@ export default function HomePage() {
       </header>
 
       {/* ========== HERO SECTION ========== */}
-      <section className="relative h-[85vh] mt-[85px]">
+      <section className="relative h-[55vh] mt-[85px]">
         {/* Hero background image */}
         <div className="absolute inset-0">
           <Image
@@ -102,7 +114,7 @@ export default function HomePage() {
       </section>
 
       {/* ========== HERO HEADLINE ========== */}
-      <section className="bg-white py-16 px-6 lg:px-16">
+      <section className="bg-white py-8 px-6 lg:px-16">
         <ScrollReveal className="max-w-[1400px] mx-auto">
           <h1 className="text-[42px] sm:text-[56px] md:text-[80px] lg:text-[100px] xl:text-[116px] font-extrabold leading-[0.9] tracking-[-2px]">
             UNITING<br />
@@ -113,9 +125,9 @@ export default function HomePage() {
       </section>
 
       {/* ========== CTA CARDS SECTION ========== */}
-      <section className="grid md:grid-cols-2">
+      <section className="max-w-[1400px] mx-auto grid md:grid-cols-2">
         {/* Sign Up Card */}
-        <div className="relative min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-center py-20 px-8">
+        <div className="relative min-h-[400px] md:min-h-[500px] flex flex-col items-center justify-center py-12 px-8">
           <Image
             src="/images/cta-signup-bg.jpg"
             alt="Serene ocean setting representing spiritual renewal through baptism"
@@ -134,7 +146,7 @@ export default function HomePage() {
         </div>
 
         {/* Host Church Card */}
-        <div className="relative min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-center py-20 px-8">
+        <div className="relative min-h-[400px] md:min-h-[500px] flex flex-col items-center justify-center py-12 px-8">
           <Image
             src="/images/cta-host-bg.jpg"
             alt="Church community gathering for baptism celebration"
@@ -154,10 +166,10 @@ export default function HomePage() {
       </section>
 
       {/* ========== WHITE DIVIDER SECTION ========== */}
-      <section className="bg-white py-20" />
+      <section className="bg-white py-16 md:py-20" />
 
       {/* ========== PENTECOST SUNDAY SECTION ========== */}
-      <section className="relative min-h-[900px] flex flex-col">
+      <section className="relative min-h-[600px] flex flex-col">
         {/* Background image - ocean/cliff scene */}
         <Image
           src="/images/pentecost-ocean.jpg"
@@ -179,7 +191,7 @@ export default function HomePage() {
       </section>
 
       {/* ========== PENTECOST DESCRIPTION (White divider) ========== */}
-      <section className="bg-white py-16 px-6">
+      <section className="bg-white py-10 px-6">
         <ScrollReveal className="max-w-4xl mx-auto">
           <p className="text-[20px] md:text-[24px] text-black leading-relaxed text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -190,9 +202,9 @@ export default function HomePage() {
       </section>
 
       {/* ========== MAKING DISCIPLES SECTION ========== */}
-      <section className="flex flex-col mt-24">
+      <section className="flex flex-col">
         {/* Blue-gray strip with heading */}
-        <div className="bg-gray-muted py-16 px-6">
+        <div className="bg-gray-muted py-10 px-6">
           <ScrollReveal>
             <h2 className="text-[48px] md:text-[64px] lg:text-[72px] font-black text-white leading-[1.1] tracking-[-2px] text-center">
               MAKING DISCIPLES<br />
@@ -202,7 +214,7 @@ export default function HomePage() {
         </div>
 
         {/* Quote section on white background */}
-        <div className="bg-white py-16 px-6">
+        <div className="bg-white py-10 px-6">
           <ScrollReveal className="max-w-4xl mx-auto text-center">
             <blockquote className="text-[22px] md:text-[28px] text-black leading-[1.6] mb-3">
               &ldquo;Go therefore and make disciples of all the nations, baptizing them
@@ -219,10 +231,10 @@ export default function HomePage() {
       <MovementSection />
 
       {/* ========== MORE EVENTS SECTION ========== */}
-      <section className="bg-white py-16 px-6 lg:px-16">
+      <section className="bg-white py-10 px-6 lg:px-16">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
-            <h2 className="text-[48px] md:text-[55px] font-medium text-center tracking-[-2.75px] mb-16">
+            <h2 className="text-[48px] md:text-[55px] font-medium text-center tracking-[-2.75px] mb-10">
               MORE EVENTS
             </h2>
           </ScrollReveal>
@@ -244,9 +256,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
               {/* Button OUTSIDE the card */}
-              <button type="button" className="mt-4 self-start rounded-full px-5 sm:px-6 py-3 sm:py-2.5 text-[13px] sm:text-[14px] font-normal border border-gray-300 text-gray-600 bg-white hover:border-gray-600 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2">
-                learn more
-              </button>
+              <EventButton />
             </div>
 
             {/* Event Card 2 - Baptize California */}
@@ -264,9 +274,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
               {/* Button OUTSIDE the card */}
-              <button type="button" className="mt-4 self-start rounded-full px-5 sm:px-6 py-3 sm:py-2.5 text-[13px] sm:text-[14px] font-normal border border-gray-300 text-gray-600 bg-white hover:border-gray-600 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2">
-                learn more
-              </button>
+              <EventButton />
             </div>
 
             {/* Event Card 3 - Baptize America */}
@@ -284,16 +292,14 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
               {/* Button OUTSIDE the card */}
-              <button type="button" className="mt-4 self-start rounded-full px-5 sm:px-6 py-3 sm:py-2.5 text-[13px] sm:text-[14px] font-normal border border-gray-300 text-gray-600 bg-white hover:border-gray-600 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2">
-                learn more
-              </button>
+              <EventButton />
             </div>
           </div>
         </div>
       </section>
 
       {/* ========== FOOTER ========== */}
-      <footer className="bg-white pt-12 pb-8 px-6 lg:px-16">
+      <footer className="bg-white pt-8 pb-6 px-6 lg:px-16">
         <div className="max-w-6xl mx-auto">
           {/* Tagline */}
           <p className="text-[17px] text-black text-center leading-relaxed mb-12">
