@@ -33,7 +33,7 @@ export default function CobeGlobe({ size = 500, className = "" }: CobeGlobeProps
       mapSamples: 16000,                 // Dotted landmasses
       mapBrightness: 6,
       baseColor: [0.9, 0.9, 0.9],        // Light gray base
-      markerColor: [0.1, 0.1, 0.1],      // Dark markers/landmasses
+      markerColor: [0.02, 0.02, 0.02],   // Very dark markers/landmasses (nearly black)
       glowColor: [1, 1, 1],              // White glow
       markers: [
         // Orange County, CA marker

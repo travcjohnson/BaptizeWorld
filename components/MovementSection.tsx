@@ -40,12 +40,12 @@ export default function MovementSection() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
 
         {/* ========== Header Area ========== */}
-        <div className="flex flex-col items-center mb-8 md:mb-10">
-          <h2 className="text-4xl md:text-[60px] font-bold uppercase tracking-tighter mb-6">
+        <div className="flex flex-col items-center mb-4 md:mb-6">
+          <h2 className="text-4xl md:text-[60px] font-bold uppercase tracking-tighter mb-3">
             The Movement
           </h2>
-          <div className="text-center mb-8">
-            <p className="text-xs uppercase tracking-widest text-gray-400 mb-4">
+          <div className="text-center mb-4">
+            <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
               In 24 months we&apos;ve seen
             </p>
             <p className="text-xl md:text-2xl font-bold">1,600+ Churches United</p>
@@ -54,13 +54,13 @@ export default function MovementSection() {
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               type="button"
-              className="border border-white/30 rounded-full px-6 py-4 sm:py-3 text-sm sm:text-xs uppercase tracking-wider hover:bg-white hover:text-black hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              className="bg-gray-600 text-white rounded-full px-6 py-2 text-sm sm:text-xs uppercase tracking-wider hover:bg-gray-500 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Join the baptize network →
             </button>
             <button
               type="button"
-              className="border border-white/30 rounded-full px-6 py-4 sm:py-3 text-sm sm:text-xs uppercase tracking-wider hover:bg-white hover:text-black hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              className="border border-gray-500 text-white rounded-full px-6 py-2 text-sm sm:text-xs uppercase tracking-wider hover:bg-gray-500 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Host at your church →
             </button>
