@@ -22,7 +22,7 @@ function PlayButton() {
 
 // Reusable button component - tighter padding to match mockup
 function LearnMoreButton({ variant = "light" }: { variant?: "light" | "dark" }) {
-  const baseClasses = "rounded-full px-7 py-2 text-[17px] font-normal tracking-[-0.3px] transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+  const baseClasses = "rounded-full px-8 py-1.5 text-[16px] font-normal tracking-[-0.3px] transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
   const variantClasses = variant === "light"
     ? "border-2 border-white text-white hover:bg-white hover:text-black hover:shadow-lg focus-visible:ring-white focus-visible:ring-offset-black/50"
     : "border-2 border-gray-muted text-gray-muted hover:bg-gray-muted hover:text-white hover:shadow-md focus-visible:ring-gray-muted";
@@ -39,7 +39,7 @@ function EventButton() {
   return (
     <button
       type="button"
-      className="mt-4 self-start rounded-full px-5 py-2 text-[13px] font-normal border border-gray-300 text-gray-600 bg-white hover:border-gray-600 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2"
+      className="mt-4 self-start rounded-full px-5 py-1 text-[13px] font-normal border border-gray-300 text-gray-600 bg-white hover:border-gray-600 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2"
     >
       learn more
     </button>

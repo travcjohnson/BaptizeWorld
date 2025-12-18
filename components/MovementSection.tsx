@@ -36,11 +36,11 @@ const timelineEvents: TimelineEvent[] = [
 
 export default function MovementSection() {
   return (
-    <section className="w-full bg-black text-white py-16 md:py-24 overflow-hidden">
+    <section className="w-full bg-black text-white py-10 md:py-14 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
 
         {/* ========== Header Area ========== */}
-        <div className="flex flex-col items-center mb-16 md:mb-20">
+        <div className="flex flex-col items-center mb-8 md:mb-10">
           <h2 className="text-4xl md:text-[60px] font-bold uppercase tracking-tighter mb-6">
             The Movement
           </h2>
@@ -71,7 +71,7 @@ export default function MovementSection() {
         <div className="hidden md:block">
           <div className="flex items-center gap-8">
             {/* Timeline area - takes remaining space */}
-            <div className="flex-1 relative" style={{ height: "280px" }}>
+            <div className="flex-1 relative" style={{ height: "180px" }}>
               {/* Timeline horizontal line - positioned at vertical center */}
               <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] bg-gray-600">
                 {/* Arrow at end */}
@@ -122,7 +122,7 @@ export default function MovementSection() {
             </div>
 
             {/* ===== GLOBE GROUP (text + globe as tightly coupled unit) ===== */}
-            <div className="flex-shrink-0 flex flex-col items-center" style={{ width: "340px" }}>
+            <div className="flex-shrink-0 flex flex-col items-center" style={{ width: "260px" }}>
               {/* Label centered above globe */}
               <div className="text-center mb-2">
                 <p className="text-[11px] text-gray-400 mb-0.5">What&apos;s Next?</p>
@@ -134,7 +134,7 @@ export default function MovementSection() {
                 </p>
               </div>
               {/* Globe - immediately follows text, both centered */}
-              <CobeGlobe size={300} />
+              <CobeGlobe size={220} />
             </div>
           </div>
         </div>
@@ -196,7 +196,7 @@ export default function MovementSection() {
                 BAPTIZE ALL NATIONS
               </p>
             </div>
-            <CobeGlobe size={260} />
+            <CobeGlobe size={200} />
           </div>
         </div>
 
